@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For Ashkara Jasmine 💜</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #4a00e0, #8e2de2);
+            color: white;
+        }
+
+        h1 {
+            margin-top: 40px;
+            font-size: 32px;
+        }
+
+        h2 {
+            font-weight: 300;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 12px 26px;
+            font-size: 16px;
+            background: #b06cff;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #d8a6ff;
+            transform: scale(1.05);
+        }
+
+        #message {
+            display: none;
+            margin-top: 35px;
+            font-size: 20px;
+            line-height: 1.6;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        #photoSection {
+            display: none;
+            margin-top: 25px;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;   /* Makes it mobile friendly */
+        }
+
+        #photoSection img {
+            width: 45%;
+            max-width: 220px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255,255,255,0.6);
+        }
+
+        .signature {
+            margin-top: 15px;
+            font-size: 16px;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Extra small screens */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            #photoSection img {
+                width: 80%;   /* Stack nicely on phone */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Happy Valentine’s Day Ashkara Jasmine 💜</h1>
+<h2>Borahae Forever ♡</h2>
+
+<button onclick="showSurprise()">Click for Surprise 💜</button>
+
+<div id="message">
+    Happy Valentine’s Day, my ARMY girl 💜<br><br>
+    May Jungkook notice you someday 😌✨
+    <div class="signature">
+        (by your friend who keeps your delulu alive)
+    </div>
+</div>
+
+<div id="photoSection">
+    <img src="herphoto.jpeg" alt="Her Photo">
+    <img src="jungkook.jpg" alt="Jungkook Photo">
+</div>
+
+<audio id="bgMusic">
+    <source src="euphoria.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    function showSurprise() {
+        document.getElementById("message").style.display = "block";
+        document.getElementById("photoSection").style.display = "flex";
+
+        const music = document.getElementById("bgMusic");
+        music.currentTime = 0;
+        music.play().catch(err => console.log(err));
+    }
+</script>
+
+</body>
+</html>
