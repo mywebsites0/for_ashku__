@@ -16,14 +16,23 @@
         }
 
         h1 {
-            margin-top: 40px;
-            font-size: 32px;
+            font-size: 28px;
         }
 
         h2 {
             font-weight: 300;
-            font-size: 18px;
+            font-size: 16px;
             opacity: 0.9;
+        }
+
+        img {
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255,255,255,0.6);
+        }
+
+        .initial-photo {
+            width: 220px;
+            margin-top: 30px;
         }
 
         button {
@@ -43,51 +52,35 @@
             transform: scale(1.05);
         }
 
-        #message {
+        #session2 {
             display: none;
-            margin-top: 35px;
+            margin-top: 30px;
+        }
+
+        .photo-row {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .photo-row img {
+            width: 45%;
+            max-width: 180px;
+        }
+
+        .message {
             font-size: 20px;
             line-height: 1.6;
-            animation: fadeIn 1.5s ease-in;
-        }
-
-        #photoSection {
-            display: none;
-            margin-top: 25px;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;   /* Makes it mobile friendly */
-        }
-
-        #photoSection img {
-            width: 45%;
-            max-width: 220px;
-            border-radius: 20px;
-            box-shadow: 0 0 20px rgba(255,255,255,0.6);
         }
 
         .signature {
-            margin-top: 15px;
-            font-size: 16px;
+            margin-top: 10px;
+            font-size: 14px;
             opacity: 0.8;
             font-style: italic;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Extra small screens */
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 24px;
-            }
-
-            #photoSection img {
-                width: 80%;   /* Stack nicely on phone */
-            }
-        }
     </style>
 </head>
 
@@ -96,33 +89,48 @@
 <h1>Happy Valentine’s Day Ashkara Jasmine 💜</h1>
 <h2>Borahae Forever ♡</h2>
 
-<button onclick="showSurprise()">Click for Surprise 💜</button>
+<!-- SESSION 1 -->
+<div id="session1">
+    <img src="herphoto.jpeg" class="initial-photo">
+    <br>
+    <button onclick="showSurprise()">Click for Surprise 💜</button>
+</div>
 
-<div id="message">
-    Happy Valentine’s Day, my ARMY girl 💜<br><br>
-    May Jungkook notice you someday 😌✨
-    <div class="signature">
-        (by your friend who keeps your delulu alive)
+<!-- SESSION 2 -->
+<div id="session2">
+    <div class="message">
+        Happy Valentine’s Day, my ARMY girl 💜<br><br>
+        May Jungkook notice you someday 😌✨
+        <div class="signature">
+            (by your friend who keeps your delulu alive)
+        </div>
+    </div>
+
+    <div class="photo-row">
+        <img src="herphoto.jpeg">
+        <img src="jungkook.jpg">
     </div>
 </div>
 
-<div id="photoSection">
-    <img src="herphoto.jpeg" alt="Her Photo">
-    <img src="jungkook.jpg" alt="Jungkook Photo">
-</div>
-
-<audio id="bgMusic">
-    <source src="euphoria.mp3" type="audio/mpeg">
+<audio id="bgMusic" preload="auto">
+    <source src="./euphoria.mp3" type="audio/mpeg">
 </audio>
 
 <script>
     function showSurprise() {
-        document.getElementById("message").style.display = "block";
-        document.getElementById("photoSection").style.display = "flex";
 
+        // Hide session 1 completely
+        document.getElementById("session1").style.display = "none";
+
+        // Show session 2
+        document.getElementById("session2").style.display = "block";
+
+        // Play music
         const music = document.getElementById("bgMusic");
-        music.currentTime = 0;
-        music.play().catch(err => console.log(err));
+        music.volume = 0.8;
+        music.play().catch(error => {
+            console.log("Playback blocked:", error);
+        });
     }
 </script>
 
