@@ -10,48 +10,42 @@
             margin: 0;
             padding: 20px;
             text-align: center;
-            font-family: 'Poppins', sans-serif;
+            font-family: Arial, sans-serif;
             background: linear-gradient(to right, #4a00e0, #8e2de2);
             color: white;
         }
 
         h1 {
-            font-size: 28px;
+            font-size: 26px;
         }
 
         h2 {
             font-weight: 300;
             font-size: 16px;
-            opacity: 0.9;
         }
 
         img {
             border-radius: 20px;
-            box-shadow: 0 0 20px rgba(255,255,255,0.6);
+            box-shadow: 0 0 15px rgba(255,255,255,0.6);
         }
 
         .initial-photo {
             width: 220px;
-            margin-top: 30px;
+            margin-top: 25px;
         }
 
         button {
-            margin-top: 30px;
-            padding: 12px 26px;
+            margin-top: 25px;
+            padding: 12px 24px;
             font-size: 16px;
             background: #b06cff;
             color: white;
             border: none;
             border-radius: 30px;
             cursor: pointer;
-            transition: 0.3s;
         }
 
-        button:hover {
-            background: #d8a6ff;
-            transform: scale(1.05);
-        }
-
+        /* VERY IMPORTANT */
         #session2 {
             display: none;
             margin-top: 30px;
@@ -60,26 +54,25 @@
         .photo-row {
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 10px;
             margin-top: 20px;
         }
 
-       .photo-row img {
-           width: 48%;
-           border-radius: 20px;
-           box-shadow: 0 0 20px rgba(255,255,255,0.6);
-       }
+        .photo-row img {
+            width: 48%;
+        }
 
         .message {
-            font-size: 20px;
+            font-size: 18px;
             line-height: 1.6;
         }
 
         .signature {
-            margin-top: 10px;
             font-size: 14px;
             opacity: 0.8;
             font-style: italic;
+            margin-top: 8px;
         }
 
     </style>
@@ -113,22 +106,19 @@
     </div>
 </div>
 
-<audio id="bgMusic" preload="auto">
-    <source src="./euphoria.mp3" type="audio/mpeg">
+<audio id="bgMusic">
+    <source src="euphoria.mp3" type="audio/mpeg">
 </audio>
 
 <script>
     function showSurprise() {
 
-        // Hide session 1 completely
         document.getElementById("session1").style.display = "none";
-
-        // Show session 2
         document.getElementById("session2").style.display = "block";
 
-        // Play music
         const music = document.getElementById("bgMusic");
-        music.volume = 0.8;
+        music.currentTime = 0;
+
         music.play().catch(error => {
             console.log("Playback blocked:", error);
         });
@@ -137,4 +127,3 @@
 
 </body>
 </html>
-
